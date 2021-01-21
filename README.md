@@ -15,7 +15,7 @@ $ sls deploy
 
 在浏览器中加载网站 URL，就开始使用函数来识别照片中的对象啦。
 
-# 创建你自己的 Tensorflow 云函数
+# 创建你自己的文本识别云函数
 
 Fork 这个 repo，使用 `Code | Open with Codespaces` 按钮来在浏览器中打开 Github Codespaces IDE 。第一次启动时，需要花费几分钟。 
 
