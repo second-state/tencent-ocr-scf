@@ -1,0 +1,15 @@
+org: secondstate
+app: tesseract
+stage: prod
+
+component: website
+name: tesseract-website
+
+inputs:
+  src:
+    src: ./content
+    index: index.html
+  region: ${env:region}
+  protocol: https
+  env:
+      API_URL: https://${output:${stage}:${app}:tesseract-scf.triggers.0.subDomain}/${output:${stage}:${app}:tesseract-scf.triggers.0.environment}/

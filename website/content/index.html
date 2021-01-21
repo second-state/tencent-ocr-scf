@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>中文文本识别</title>
+      <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="./env.js"></script>
+      <script>
+         function callService() {
+           setTimeout(function(){
+             $('#process').prop('disabled', true);
+           },0);
+
+           var reader = new FileReader();
+           reader.readAsDataURL(document.querySelector('#select_file').files[0]);
+           reader.onloadend = function () {
+             $.ajax({
+               url: window.env.API_URL,
+               type: "post",
+               data : reader.result.split("base64,")[1],
+               dataType: "text",
+               success: function (data) {
+                 document.querySelector('#result').innerHTML = data;
+                 $('#process').prop('disabled', false);
+               },
+               error: function(jqXHR, exception){
+                 var msg = 'Generic error';
+                 if (jqXHR.status === 0) {
+                   msg = 'Not connect.\n Verify Network.';
+                 } else if (jqXHR.status == 404) {
+                   msg = 'Requested page not found. [404]';
+                 } else if (jqXHR.status == 500) {
+                   msg = 'Internal Server Error [500].';
+                 } else if (exception === 'parsererror') {
+                   msg = 'Requested JSON parse failed.';
+                 } else if (exception === 'timeout') {
+                   msg = 'Time out error.';
+                 } else if (exception === 'abort') {
+                   msg = 'Ajax request aborted.';
+                 } else {
+                   msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                 }
+	         console.log(msg);
+                 document.querySelector('#result').innerHTML = '服务繁忙，请稍后重试';
+                 $('#process').prop('disabled', false);
+               }
+             });
+           };
+           return false;
+         }
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div style="text-align:center;margin:25px">
+            <a href="https://www.secondstate.io/"><img style="border:0;" src="https://www.secondstate.io/assets/img/logo.png"></a>
+            <div style="font-size:90%;color:gray;margin:20px"><a href="https://www.secondstate.io/faas/">Fast, safe, portable and serverless Rust functions as services</a></div>
+         </div>
+         <h1>中文文本识别</h1>
+         <hr />
+         <form id="draw" enctype="multipart/form-data">
+            <div class="panel panel-default">
+               <div class="form-group">
+                  <label for="input_1">选择上传一张中文文字图片【<a href="test-chinese.png" target="_blank">例子</a>】然后按“识别”按钮。</label>
+                  <input type="file" class="form-control-file" id="select_file" name="select_file">
+               </div>
+            </div>
+            <hr />
+            <button class="btn btn-success mb-2" id="process" name="process" value="1" onclick="return callService();">识别</button>
+         </form>
+         <div class="jumbotron">
+            <pre id="result">请选择上传一张中文文字图片，然后按“识别”按钮。</pre>
+         </div>
+      </div>
+      <!-- /container -->
+   </body>
+</html>
