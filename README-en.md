@@ -16,7 +16,7 @@ $ sls deploy
 Load the website URL in any web browser and start to use this function to identify objects in photos.
 
 
-# Build your own Tensorflow cloud function
+# Build your own OCR cloud function
 
 Fork this repo and use the `Code | Open with Codespaces` button to launch Github Codespaces IDE in your browser. It may take a few minutes to start the first time. 
 
@@ -37,7 +37,7 @@ $ ssvmup build --enable-aot
 
 ## Deploy
 
-In the `Terminal` window, run the following commands to deploy the Tessaract OCR cloud function to the Tencent Cloud.
+In the `Terminal` window, run the following commands to deploy the Tesseract OCR cloud function to the Tencent Cloud.
 
 ```
 $ cp pkg/scf.so scf/
@@ -51,7 +51,7 @@ Load the deployed URL in any web browser and have fun!
 
 # Develop on your own computer
 
-If you cannot or do not wish to use Github Codespaces, you can install the ssvmup and serverless framework toolchains on your own computer (or Docker image) to build and deploy Tensorflow serverless functions.
+If you cannot or do not wish to use Github Codespaces, you can install the ssvmup and serverless framework toolchains on your own computer (or Docker image) to build and deploy the Tesseract OCR serverless functions.
 
 [Install the ssvmup tool](https://www.secondstate.io/articles/ssvmup/)
 
