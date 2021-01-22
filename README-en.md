@@ -38,7 +38,7 @@ $ ssvmup build --enable-aot
 
 ## Deploy
 
-In the `Terminal` window, run the following commands to deploy the Tessaract OCR cloud function to the Tencent Cloud.
+In the `Terminal` window, run the following commands to deploy the Tesseract OCR cloud function to the Tencent Cloud.
 
 ```
 $ cp pkg/scf.so scf/
@@ -52,7 +52,7 @@ Load the deployed URL in any web browser and have fun!
 
 # Develop on your own computer
 
-If you cannot or do not wish to use Github Codespaces, you can install the ssvmup and serverless framework toolchains on your own computer (or Docker image) to build and deploy Tensorflow serverless functions.
+If you cannot or do not wish to use Github Codespaces, you can install the ssvmup and serverless framework toolchains on your own computer (or Docker image) to build and deploy the Tesseract OCR serverless functions.
 
 [Install the ssvmup tool](https://www.secondstate.io/articles/ssvmup/)
 

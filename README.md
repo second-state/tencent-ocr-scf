@@ -15,7 +15,7 @@ $ sls deploy
 
 在浏览器中加载网站 URL，就开始使用函数来识别照片中的对象啦。
 
-# 创建你自己的 OCR 云函数
+# 创建你自己的文本识别云函数
 
 Fork 这个 repo，使用 `Code | Open with Codespaces` 按钮来在浏览器中打开 Github Codespaces IDE 。第一次启动时，需要花费几分钟。 
 
@@ -37,7 +37,7 @@ $ ssvmup build --enable-aot
 
 ## 部署
 
-在 `Terminal` 窗口，运行下面的命令行将 Tessaract OCR 云函数部署到腾讯云上。
+在 `Terminal` 窗口，运行下面的命令行将 Tesseract OCR 云函数部署到腾讯云上。
 
 ```
 $ cp pkg/scf.so scf/
@@ -51,7 +51,7 @@ $ sls deploy
 
 # 在本地机器上部署
 
-如果你不能或不想使用 Github Codespaces，那可以在自己的计算机（或Docker映像）上安装 ssvmup 和 serverless framework 工具链来构建和部署 Tensorflow serverless 函数。
+如果你不能或不想使用 Github Codespaces，那可以在自己的计算机（或Docker映像）上安装 ssvmup 和 serverless framework 工具链来构建和部署文本识别 serverless 函数。
 [安装 ssvmup 工具](https://www.secondstate.io/articles/ssvmup/)
 
 通过 NPM 安装 Serverless Framework。
