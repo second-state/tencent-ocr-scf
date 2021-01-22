@@ -15,13 +15,15 @@
              $('#process').prop('disabled', true);
            },0);
 
-           var reader = new FileReader();
-           reader.readAsDataURL(document.querySelector('#select_file').files[0]);
-           reader.onloadend = function () {
+           // var reader = new FileReader();
+           // reader.readAsDataURL(document.querySelector('#select_file').files[0]);
+           // reader.onloadend = function () {
              $.ajax({
                url: window.env.API_URL,
                type: "post",
-               data : reader.result.split("base64,")[1],
+               // data : reader.result.split("base64,")[1],
+               data : $('#select_file')[0].files[0],
+               processData: false,
                dataType: "text",
                success: function (data) {
                  document.querySelector('#result').innerHTML = data;
@@ -49,7 +51,7 @@
                  $('#process').prop('disabled', false);
                }
              });
-           };
+           // };
            return false;
          }
       </script>

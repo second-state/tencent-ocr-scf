@@ -1,4 +1,4 @@
-[English](README-en.md) | [Live demo!](https://sls-website-ap-beijing-qb9b7h8b-1302315972.cos-website.ap-beijing.myqcloud.com/)
+[English](README-en.md) | [Live demo!](https://sls-website-ap-beijing-ip24k19-1302315972.cos-website.ap-beijing.myqcloud.com/)
 
 # 快速开始
 
@@ -10,12 +10,12 @@ $ sls deploy
   website:       https://sls-website-ap-hongkong-kfdilz-1302315972.cos-website.ap-hongkong.myqcloud.com
   vendorMessage: null
 
-63s › tencent-tensorflow-scf › "deploy" ran for 3 apps successfully.
+63s › tencent-ocr-scf › "deploy" ran for 3 apps successfully.
 ```
 
 在浏览器中加载网站 URL，就开始使用函数来识别照片中的对象啦。
 
-# 创建你自己的 Tensorflow 云函数
+# 创建你自己的 OCR 云函数
 
 Fork 这个 repo，使用 `Code | Open with Codespaces` 按钮来在浏览器中打开 Github Codespaces IDE 。第一次启动时，需要花费几分钟。 
 
@@ -23,6 +23,7 @@ Fork 这个 repo，使用 `Code | Open with Codespaces` 按钮来在浏览器中
 
 一旦 Codespaces IDE 启动了, 你就可以根据自己的应用程序需求来对源代码进行修改，自定义函数。
 
+* 要识别另一种语言，把该语言的 [traineddata file](https://github.com/tesseract-ocr/tessdata) 加入到 `scf/` 目录下.
 * 在 `src/main.rs` 文件中更改语言设置以及数据预处理和后处理逻辑。
 * 在 `website/content/index.html` 文件中对前端UI进行更改。
 

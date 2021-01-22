@@ -31,7 +31,7 @@ fn main() {
         .arg("70")
         .arg("-l")
         .arg("chi_sim")
-        .env("TESSDATA_PREFIX", "/opt")
+        .env("TESSDATA_PREFIX", "/var/user")
         .env("LD_LIBRARY_PATH", "/opt");
 
     let out = cmd.output();

@@ -1,4 +1,4 @@
-[中文](README.md) | [Live demo!](https://sls-website-ap-beijing-qb9b7h8b-1302315972.cos-website.ap-beijing.myqcloud.com/)
+[中文](README.md) | [Live demo!](https://sls-website-ap-beijing-ip24k19-1302315972.cos-website.ap-beijing.myqcloud.com/)
 
 # Quick start
 
@@ -10,13 +10,13 @@ $ sls deploy
   website:       https://sls-website-ap-hongkong-kfdilz-1302315972.cos-website.ap-hongkong.myqcloud.com
   vendorMessage: null
 
-63s › tencent-tensorflow-scf › "deploy" ran for 3 apps successfully.
+63s › tencent-ocr-scf › "deploy" ran for 3 apps successfully.
 ```
 
 Load the website URL in any web browser and start to use this function to identify objects in photos.
 
 
-# Build your own Tensorflow cloud function
+# Build your own OCR cloud function
 
 Fork this repo and use the `Code | Open with Codespaces` button to launch Github Codespaces IDE in your browser. It may take a few minutes to start the first time. 
 
@@ -24,6 +24,7 @@ Fork this repo and use the `Code | Open with Codespaces` button to launch Github
 
 Once the Codespaaces IDE starts, you can make simple changes to the source code to customize it for your own applications.
 
+* To change to a different language, add the new language's [traineddata file](https://github.com/tesseract-ocr/tessdata) to the `scf/` folder.
 * Make changes to the language setting and data pre-processing and post-processing logic in `src/main.rs` file. 
 * Make changes to the front end UI in the `website/content/index.html` file.
 

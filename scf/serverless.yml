@@ -32,3 +32,4 @@ inputs:
               method: POST
               enableCORS: true
               serviceTimeout: 60
+              isBase64Encoded: true

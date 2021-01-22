@@ -7,8 +7,6 @@ name: tesseract-layer
 
 inputs:
   region: ${env:region}
-  src:
-    bucket: ${output:${stage}:${app}:tesseract-cos.bucket}
-    object: layer.zip
+  src: .
   runtimes:
     - CustomRuntime
