@@ -1,4 +1,4 @@
-[中文](README.md) | [Live demo!](https://sls-website-ap-beijing-ip24k19-1302315972.cos-website.ap-beijing.myqcloud.com/)
+[中文](README.md) | [Live demo!](https://sls-website-ap-beijing-imubol-1302315972.cos-website.ap-beijing.myqcloud.com/)
 
 # Quick start
 

@@ -15,43 +15,38 @@
              $('#process').prop('disabled', true);
            },0);
 
-           // var reader = new FileReader();
-           // reader.readAsDataURL(document.querySelector('#select_file').files[0]);
-           // reader.onloadend = function () {
-             $.ajax({
-               url: window.env.API_URL,
-               type: "post",
-               // data : reader.result.split("base64,")[1],
-               data : $('#select_file')[0].files[0],
-               processData: false,
-               dataType: "text",
-               success: function (data) {
-                 document.querySelector('#result').innerHTML = data;
-                 $('#process').prop('disabled', false);
-               },
-               error: function(jqXHR, exception){
-                 var msg = 'Generic error';
-                 if (jqXHR.status === 0) {
-                   msg = 'Not connect.\n Verify Network.';
-                 } else if (jqXHR.status == 404) {
-                   msg = 'Requested page not found. [404]';
-                 } else if (jqXHR.status == 500) {
-                   msg = 'Internal Server Error [500].';
-                 } else if (exception === 'parsererror') {
-                   msg = 'Requested JSON parse failed.';
-                 } else if (exception === 'timeout') {
-                   msg = 'Time out error.';
-                 } else if (exception === 'abort') {
-                   msg = 'Ajax request aborted.';
-                 } else {
-                   msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                 }
-	         console.log(msg);
-                 document.querySelector('#result').innerHTML = '服务繁忙，请稍后重试';
-                 $('#process').prop('disabled', false);
+           $.ajax({
+             url: window.env.API_URL,
+             type: "post",
+             data : $('#select_file')[0].files[0],
+             processData: false,
+             dataType: "text",
+             success: function (data) {
+               document.querySelector('#result').innerHTML = data;
+               $('#process').prop('disabled', false);
+             },
+             error: function(jqXHR, exception){
+               var msg = 'Generic error';
+               if (jqXHR.status === 0) {
+                 msg = 'Not connect.\n Verify Network.';
+               } else if (jqXHR.status == 404) {
+                 msg = 'Requested page not found. [404]';
+               } else if (jqXHR.status == 500) {
+                 msg = 'Internal Server Error [500].';
+               } else if (exception === 'parsererror') {
+                 msg = 'Requested JSON parse failed.';
+               } else if (exception === 'timeout') {
+                 msg = 'Time out error.';
+               } else if (exception === 'abort') {
+                 msg = 'Ajax request aborted.';
+               } else {
+                 msg = 'Uncaught Error.\n' + jqXHR.responseText;
                }
-             });
-           // };
+	       console.log(msg);
+               document.querySelector('#result').innerHTML = '服务繁忙，请稍后重试';
+               $('#process').prop('disabled', false);
+             }
+           });
            return false;
          }
       </script>
